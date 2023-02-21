@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Lab 6: Programación orientada a eventos</title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <nav class="level py-4">
+      <p class="level-item has-text-centered">
+        <a class="link is-info">Home</a>
+      </p>
+      <p class="level-item has-text-centered">
+        <a class="link is-info">Shop</a>
+      </p>
+      <p class="level-item has-text-centered">
+        <img src="./assets/logo.avif" alt="" style="height: 30px" />
+      </p>
+      <p class="level-item has-text-centered">
+        <a class="link is-info">Cart</a>
+      </p>
+      <p class="level-item has-text-centered">
+        <a class="link is-info">Contact</a>
+      </p>
+    </nav>
+
+    <!-- CART -->
+
+    <!-- MAIN -->
+    <main class="columns is-mobile product-grid p-4 px-6">
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="./assets/proverbs.webp" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 item" data-img="./assets/proverbs.webp">
+                  The Book of Proverbs
+                </p>
+              </div>
+            </div>
+
+            <div class="content">
+              <p class="has-text-dark">
+                <span class="price" data-price="36.00">$36.00</span>
+              </p>
+              <p>
+                A book on wisdom, teaching humans how to live well in the world.
+              </p>
+            </div>
+            <footer class="card-footer">
+              <button class="button minus-btn">-</button>
+              <input
+                class="input card-footer-item"
+                type="number"
+                placeholder="0"
+              />
+              <button class="button plus-btn">+</button>
+            </footer>
+            <footer class="card-footer mt-5">
+              <button class="button is-info card-footer-item add-to-cart-btn">
+                Añadir al carrito
+              </button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="./assets/gospels.webp" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 item" data-img="./assets/gospels.webp">
+                  The Gospels
+                </p>
+              </div>
+            </div>
+
+            <div class="content">
+              <p class="has-text-dark">
+                <span class="discount">$144.00</span>
+                <span class="price" data-price="125.00">$125.00</span>
+              </p>
+              <p>
+                All four Gospels—Matthew, Mark, Luke, and John—with visual
+                imagery and thoughtful design
+              </p>
+            </div>
+
+            <footer class="card-footer">
+              <button class="button minus-btn">-</button>
+              <input
+                class="input card-footer-item"
+                type="number"
+                placeholder="0"
+              />
+              <button class="button plus-btn">+</button>
+            </footer>
+            <footer class="card-footer mt-5">
+              <button class="button is-info card-footer-item add-to-cart-btn">
+                Añadir al carrito
+              </button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="./assets/bible-study.webp" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 item" data-img="./assets/bible-study.webp">
+                  The Good and Beautiful Bible Study
+                </p>
+              </div>
+            </div>
+
+            <div class="content">
+              <p class="has-text-dark">
+                <span class="price" data-price="125.00">$125.00</span>
+              </p>
+              <p>
+                Experiencing stories from the Bible and what it means for our
+                lives today
+              </p>
+            </div>
+
+            <footer class="card-footer">
+              <button class="button minus-btn">-</button>
+              <input
+                class="input card-footer-item"
+                type="number"
+                placeholder="0"
+              />
+              <button class="button plus-btn">+</button>
+            </footer>
+            <footer class="card-footer mt-5">
+              <button class="button is-info card-footer-item add-to-cart-btn">
+                Añadir al carrito
+              </button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="column cart-container my-3 px-6">
+        <h2 class="title column">Cart</h2>
+        <table class="cart table" id="cart"></table>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+
+    <script src="./app.js"></script>
+  </body>
+</html>
