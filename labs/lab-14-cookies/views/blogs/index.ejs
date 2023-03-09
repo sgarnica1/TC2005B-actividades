@@ -1,0 +1,20 @@
+<div class="blogs content">
+  <h2>All Blogs</h2>
+
+  <% if (last_blog !="" ) { %>
+  <h3 class="title">Latest Blog</h3>
+  <a href="/blogs/<%= last_blog._id %>" class="single">
+    <h3 class="title"><%= last_blog.title %></h3>
+    <p class="snippet"><%= last_blog.snippet %></p>
+  </a>
+  <% } %>
+  <h3 class="title">All</h3>
+  <% if (blogs.length> 0) { %> <% blogs.forEach(blog=> { %>
+  <a href="/blogs/<%= blog._id %>" class="single">
+    <h3 class="title"><%= blog.title %></h3>
+    <p class="snippet"><%= blog.snippet %></p>
+  </a>
+  <% }); %> <% } else { %>
+  <p class="title">No blogs available yet :(</p>
+  <% }; %>
+</div>
