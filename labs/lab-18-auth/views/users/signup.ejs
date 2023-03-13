@@ -1,5 +1,7 @@
 <div class="create-blog content">
+  <h2 class="title">Sign Up</h2>
   <form action="/users/signup" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required />
     <label for="username">Username</label>

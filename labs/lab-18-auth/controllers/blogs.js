@@ -21,6 +21,7 @@ const blog_index = async (req, res) => {
 
     res.render("blogs/index", {
       title: "Blogs",
+      isLoggedIn: req.session.user || false,
       blogs: rows,
       last_blog: req.session.last_blog ? req.session.last_blog : "",
     });
@@ -29,9 +30,11 @@ const blog_index = async (req, res) => {
   }
 };
 
-const blog_create_get = async (_, res) => {
+const blog_create_get = async (req, res) => {
   res.render("blogs/create", {
     title: "Create a new Blog",
+    isLoggedIn: req.session.user || false,
+    csrfToken: req.csrfToken(),
   });
 };
 
@@ -52,6 +55,7 @@ const blog_create_post = async (req, res) => {
 
     res.status(200).render("blogs/index", {
       title: "Blogs",
+      isLoggedIn: req.session.user || false,
       blogs: rows,
       last_blog: req.session.last_blog ? req.session.last_blog : "",
     });
@@ -74,7 +78,10 @@ const blog_details = async (req, res) => {
       title: singleBlog.title,
     });
   } catch (error) {
-    res.status(404).render("404", { title: "Blog not found" });
+    res.status(404).render("404", {
+      title: "Blog not found",
+      isLoggedIn: req.session.user || false,
+    });
   }
 };
 

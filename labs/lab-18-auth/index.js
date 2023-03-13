@@ -4,6 +4,10 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const port = 3000;
 
+// CSRF
+const csrf = require("csurf");
+const csrfProtection = csrf();
+
 // VIEW ENGINE
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views/");
@@ -15,6 +19,7 @@ app.use(express.static("public"));
 const blogsRouter = require("./routes/blogs");
 const aboutRouter = require("./routes/about");
 const userRouter = require("./routes/users");
+const isAuth = require("./utils/isauth");
 
 // MIDDLEWARE
 app.use(express.json());
@@ -26,14 +31,15 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use(csrfProtection);
 
 // ROUTES
 app.get("/", (_, res) => {
   res.redirect("/blogs");
 });
-app.use("/about", aboutRouter);
-app.use("/blogs", blogsRouter);
 app.use("/users", userRouter);
+app.use("/about", isAuth, aboutRouter);
+app.use("/blogs", isAuth, blogsRouter);
 
 // 404
 app.use((_, res) => {

@@ -16,8 +16,17 @@
     <li>
       <a href="/blogs/create">New Blog</a>
     </li>
-    <li>
-      <a href="/users/signup">Sign Up</a>
-    </li>
+    <% if(!isLoggedIn) {%>
+      <li>
+        <a href="/users/signup">Sign Up</a>
+      </li>
+      <li>
+        <a href="/users/signin">Sign In</a>
+      </li>
+    <% } else {%>
+      <li>
+        <a href="/users/signout">Sign out</a>
+      </li>
+    <% } %>
   </ul>
 </nav>
