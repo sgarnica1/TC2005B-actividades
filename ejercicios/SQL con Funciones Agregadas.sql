@@ -47,8 +47,8 @@ ORDER BY AVG(sueldo) DESC;
 -- en varias veces entre la lista de películas estaría la producción de Titanic y el año que fue filmada con menor presupuesto).
 SELECT titulo, anio, presupuesto
 FROM pelicula
-GROUP BY titulo
-ORDER BY presupuesto ASC;
+ORDER BY presupuesto ASC
+GROUP BY titulo;
 
 -- 5. Mostrar el sueldo de la actriz mejor pagada.
 SELECT nombre, sueldo
