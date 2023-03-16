@@ -46,12 +46,14 @@ const blog_create_post = async (req, res) => {
       body: req.body.body,
     });
 
-    newBlog.save();
+    const res = newBlog.save();
+    console.log(res)
 
     req.session.last_blog = newBlog;
 
     const blogs = await Blog.fetchAll();
     const [rows] = blogs;
+    console.log(rows);
 
     res.status(200).render("blogs/index", {
       title: "Blogs",
