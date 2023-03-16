@@ -47,7 +47,7 @@ const blog_create_post = async (req, res) => {
     });
 
     const res = newBlog.save();
-    console.log(res)
+    console.log(res);
 
     req.session.last_blog = newBlog;
 
@@ -78,11 +78,11 @@ const blog_details = async (req, res) => {
     res.render("blogs/details", {
       blog: singleBlog,
       title: singleBlog.title,
+      isLoggedIn: req.session.user || false,
     });
   } catch (error) {
     res.status(404).render("404", {
       title: "Blog not found",
-      isLoggedIn: req.session.user || false,
     });
   }
 };
